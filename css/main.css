@@ -217,6 +217,7 @@ header .container ul a:hover::before {
 @media (max-width: 767px) {
   .home .container {
     flex-direction: column;
+    justify-content: flex-start;
   }
   .home .container .image {
     width: 100%;
