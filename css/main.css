@@ -1,0 +1,457 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+/* Start variables  */
+:root {
+  --section-padding: 50px;
+  --black: #1f1f1f;
+  --white: #fff;
+  --yellow: #ffc554;
+  --deep-yellow: #ffc727;
+  --bg-yellow: #fffaf1;
+  --btn-yellow: #fff4d4;
+  --footer-yellow: #fff9e9;
+  --grey: #737373;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s linear;
+}
+/* End variables  */
+
+/* Start global rules  */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  color: var(--black);
+  overflow-x: hidden;
+  font-size: 16px;
+}
+ul {
+  list-style: none;
+}
+p {
+  color: var(--grey);
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End global rules  */
+/* components start */
+.yellow {
+  color: var(--yellow);
+}
+.logo {
+  font-size: 36px;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .logo {
+    font-size: 30px;
+  }
+}
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 15px;
+  border: none;
+  color: var(--deep-yellow);
+  background-color: rgba(255, 199, 39, 0.2);
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  transform: scale(0.97);
+}
+/* components end */
+/* header start */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  transition: 0.3s ease;
+  z-index: 10;
+}
+header.scroll {
+  box-shadow: var(--box-shadow);
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+header .container ul {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+header .container ul a {
+  font-weight: 700;
+  position: relative;
+}
+header .container ul a::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--yellow);
+  transition: 0.3s ease;
+}
+header .container ul a:hover {
+  color: var(--yellow);
+}
+header .container ul a:hover::before {
+  width: 100%;
+}
+.toggle {
+  display: none;
+}
+@media (max-width: 991px) {
+  header .container ul {
+    gap: 30px;
+  }
+}
+@media (max-width: 767px) {
+  header .container ul {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--white);
+    flex-direction: column;
+    width: 90%;
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    text-align: center;
+    transition: var(--transition);
+  }
+  header .container ul.active {
+    top: 100px;
+  }
+  header .container .toggle {
+    display: block;
+  }
+  header .container .toggle img {
+    width: 28px;
+    cursor: pointer;
+  }
+}
+/* header end */
+/* home start */
+.home {
+  margin-top: 80px;
+}
+.home .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 80px);
+}
+.home .container .text {
+  width: 50%;
+}
+.home .container .text h1 {
+  font-size: 58px;
+}
+.home .container .text p {
+  margin: 30px 0 40px;
+  font-size: 18px;
+}
+.home .container .text .btn {
+  color: var(--white);
+  background-color: var(--yellow);
+  padding: 18px 26px;
+}
+.home .container .text .btn:hover {
+  background-color: var(--deep-yellow);
+}
+.home .container .image {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .home .container {
+    flex-direction: column;
+  }
+  .home .container .image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home .container .image img {
+    max-width: 300px;
+  }
+  .home .container .text {
+    width: 100%;
+  }
+  .home .container .text h1 {
+    margin-top: 15px;
+    font-size: 35px;
+  }
+  .home .container .text p {
+    margin: 10px 0;
+  }
+}
+@media (max-width: 450px) {
+  .home .container .image img {
+    max-width: 280px;
+  }
+}
+/* home end */
+/* services start */
+.services {
+  padding: 100px 0;
+  background-color: rgb(255, 197, 84, 0.08);
+}
+.services .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.services .container h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.services .container > p {
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+.services .container .cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.services .container .cards .card {
+  max-width: 360px;
+  padding: 60px 30px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.services .container .cards .card.active {
+  background-color: var(--white);
+}
+.services .container .cards .card > img {
+  display: block;
+  margin-bottom: 25px;
+}
+.services .container .cards .card h3 {
+  font-size: 24px;
+}
+.services .container .cards .card p {
+  margin: 25px 0 35px;
+}
+.services .container .cards .card .more {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.services .container .cards .card .more img {
+  transition: 0.3s ease;
+}
+.services .container .cards .card:hover .more img {
+  transform: rotate(90deg);
+}
+@media (max-width: 767px) {
+  .services .container h2 {
+    font-size: 30px;
+  }
+}
+/* services end */
+/* sec start */
+.sec {
+  padding: var(--section-padding) 0;
+}
+.track {
+  padding-bottom: 150px;
+}
+.sec .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.sec .container .image {
+  width: 50%;
+}
+.sec .container .text {
+  width: 50%;
+}
+.deliver .text {
+  order: -1;
+}
+.sec .container .text h2 {
+  font-size: 40px;
+}
+.sec .container .text p {
+  margin: 25px 0 35px;
+}
+@media (max-width: 767px) {
+  .sec .container {
+    flex-direction: column;
+  }
+  .sec .container .image {
+    width: 100%;
+    max-width: 400px;
+  }
+  .sec .container .text {
+    width: 100%;
+  }
+  .sec .container h2 {
+    font-size: 30px;
+  }
+  .deliver .container .text {
+    order: 2;
+  }
+}
+/* sec end */
+/* app start */
+.app {
+  padding: 100px 0;
+  background-color: var(--yellow);
+  border-radius: 20px;
+  margin-bottom: 200px;
+}
+.app .container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.app .container .image {
+  width: 50%;
+  position: relative;
+}
+.app .container .image img {
+  position: absolute;
+  top: -17rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.app .container .text {
+  width: 50%;
+}
+.app .container .text h2 {
+  font-size: 40px;
+}
+.app .container .text p {
+  margin: 25px 0 35px;
+  color: var(--black);
+}
+.app .container .text .stores {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 30px;
+}
+.app .container .text .stores img {
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  .app .container {
+    flex-direction: column;
+  }
+  .app .container .image {
+    width: 100%;
+  }
+  .app .container .image img {
+    width: 210px;
+    top: -11rem;
+  }
+  .app .container .text {
+    width: 100%;
+    margin-top: 255px;
+  }
+}
+/* app end */
+/* footer start */
+footer {
+  padding: 100px 0;
+  background-color: rgb(255, 197, 84, 0.08);
+}
+footer .container {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+footer .container ul:first-of-type {
+  max-width: 400px;
+}
+footer .container ul:first-of-type .logo {
+  font-size: 36px;
+  color: var(--black);
+}
+footer .container ul li {
+  color: var(--grey);
+  line-height: 1.6;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 14px;
+}
+footer .container ul.withicon li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+footer .container ul li:hover {
+  color: black;
+}
+footer .container ul li h4 {
+  color: var(--black);
+}
+
+/* footer end */
